@@ -2,7 +2,7 @@
 # =================================
 # specific acessible
 from nextoff.TestFlie import TestClass
-
-# make all accessible
-import nextoff
 from nextoff.Data.inmemory import InMemoryImgHandler
+
+# won't make all accessible?
+import nextoff
