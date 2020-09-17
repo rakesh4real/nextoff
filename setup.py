@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
-  name = 'next0ff',         # How you named your package folder (MyLib)
-  packages = ['next0ff'],   # Chose the same as "name"
-  version = '0.1.1',      # Start with a small number and increase it with every change you make
+  name = 'nextoff',         # How you named your package folder (MyLib)
+  packages = ['nextoff'],   # Chose the same as "name"
+  version = '0.2',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'A package to experiment and tune keras hyperparameters',   # Give a short description about your library
   author = 'Asapanna Rakesh',                   # Type in your name
   author_email = 'rakeshark22@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/rakesh4real/nextoff',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.0.1.0.tar.gz',  # link pasted from release
+  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.2.tar.gz',  # link pasted from release
   keywords = ['Keras', 'hyperparameters', 'hyperparameters tuning'],   # Keywords that define your package best
   install_requires=[        
           'keras',
