@@ -8,7 +8,7 @@ setup(
   author = 'Asapanna Rakesh',                   # Type in your name
   author_email = 'rakeshark22@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/rakesh4real/nextoff',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.0.tar.gz',  # link pasted from release
+  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.0.1.0.tar.gz',  # link pasted from release
   keywords = ['Keras', 'hyperparameters', 'hyperparameters tuning'],   # Keywords that define your package best
   install_requires=[        
           'keras',
