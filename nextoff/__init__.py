@@ -5,3 +5,4 @@ from nextoff.TestFlie import TestClass
 
 # make all accessible
 import nextoff
+from nextoff.Data.inmemory import InMemoryImgHandler
