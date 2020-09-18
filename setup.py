@@ -5,8 +5,8 @@ setup(
     'nextoff', 
     'nextoff.test', 
     'nextoff.data', 
-    'nextoff.models'
-    'nextoff.train'
+    'nextoff.models',
+    'nextoff.train',
     ],  # Important!!
   version = '0.1.1',      # Always update!
   license='MIT',        
