@@ -1,6 +1,15 @@
 # `pip3 install nextoff`
 ![Nextoff](docs/static/images/NEXTOFF.png)
 
+![](https://aleen42.github.io/badges/src/tensorflow.svg)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/rakesh4real/nextoff/graphs/commit-activity)
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://twitter.com/_rakesh4real)
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
+
+
 A package to perform emprical hyperparameter tuning!
 
 # How to use
@@ -74,6 +83,12 @@ class args:
             os.system('clear')
     """
 ```
+
+----
+
+[![Twitter](https://aleen42.github.io/badges/src/twitter.svg)](https://twitter.com/_rakesh4real)
+
+Connect with the maintainer
 
 ----
 **To contributers:** Build new release to update PyPI. Thanks to GitHub Actions!
