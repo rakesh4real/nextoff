@@ -3,7 +3,9 @@
 # test file
 from nextoff.testfile import TestClass
 # test folder
-from nextoff.test.testfile import printHi
+from nextoff import test
+# do we need to specify interal classes?
+#from nextoff.test.testfile import printHi
 # -------------------------------------------------
 
 # ===========================================================================================
@@ -16,4 +18,3 @@ from nextoff.data.inmemory import InMemoryImgHandler
 # models
 # ===========================================================================================
 from nextoff import models
-# do we need to specify interal classes?
