@@ -1,4 +1,5 @@
 import keras #for one-hot-encoding
+import math 
 
 class InMemoryImgHandler:
     """
@@ -40,9 +41,9 @@ class InMemoryImgHandler:
             raise Exception('Split percents\' sum must be 100!')
 
         n_samples = X.shape[0]
-        n_train   = (ratio[0]/100) * n_samples
-        n_val     = (ratio[1]/100) * n_samples
-        n_test    = (ratio[2]/100) * n_samples
+        n_train   =  math.floor( (ratio[0]/100) * n_samples )
+        n_val     =  math.floor( (ratio[1]/100) * n_samples )
+        n_test    =  math.floor( (ratio[2]/100) * n_samples )
         
         train_l, train_r   =             0, n_train
         val_l, val_r       =       n_train, n_train+n_val
@@ -68,5 +69,3 @@ class InMemoryImgHandler:
     # ============================================================================================
     # END: static methods 
     # ============================================================================================
-
-    
