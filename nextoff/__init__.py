@@ -1,20 +1,21 @@
 # only these are accessible to user
 # ===========================================================================================
-# test file
+# 1. test file
 from nextoff.testfile import TestClass
-# test folder
+# 2. test folder
+# Import file first and then import 
+# constituent using full path
 from nextoff import test
 # do we need to specify interal classes explicitly? YES
-# like here
+# like here (w/ full path too)
 from nextoff.test.testfile import printHi
 # can we do it in internal __init__? YES (check print2)
-# -------------------------------------------------
+# -----------------------------------------------------------
 
 # ===========================================================================================
 # data
 # ===========================================================================================
 from nextoff import data 
-from nextoff.data.inmemory import InMemoryImgHandler
 
 # ===========================================================================================
 # models
