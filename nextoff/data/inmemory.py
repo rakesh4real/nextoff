@@ -5,15 +5,15 @@ class InMemoryImgHandler:
     """
     Handles image data available in RAM
     """
-    def __init__(self, X, y, y_info):
+    def __init__(self, X, y, y_info, ratio=(60,20,20)):
         """
         + `X` is 4-D ndarray of (n_samples, w, h, c)
         + `y` is  either one-hot-encoded (n_smaple, n_classes) bin 
            numeric (n_smaple, 1) ndarray
-
         + y_info is tuple
             - idx 2{INT}  : num_classes
             - idx 1{BOOL} : True if one-hot-encoded already
+        + `ratio` is tuple (train_ratio, val_ratio, test_ratio)
         """
         # 1. one hot encode targets if not already
         if y_info[1] is False:
@@ -22,13 +22,13 @@ class InMemoryImgHandler:
         X = InMemoryImgHandler.normalize_img_data(X)
         # 3. gen train, val and test dataset and store
         (self.x_train, self.y_train), (self.x_val, self.y_val), (self.x_test, self.y_test) = \
-            InMemoryImgHandler.train_val_test_split(X, y)
+            InMemoryImgHandler.train_val_test_split(X, y, ratio)
 
     # ============================================================================================
     # BEG: static methods 
     # ============================================================================================
     @staticmethod
-    def train_val_test_split(X, y, ratio=(60,20,20)):
+    def train_val_test_split(X, y, ratio):
         """ 
         + `X` is 4-D array of (n_samples, w, h, c) 
         + `y` is one-hot-ecoded
