@@ -5,3 +5,4 @@ from nextoff.testfile import TestClass
 # from nextoff.data.inmemory import InMemoryImgHandler
 # won't make all accessible?
 from nextoff import data 
+import nextoff
