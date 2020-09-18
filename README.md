@@ -1,4 +1,6 @@
-# `pip3 install next0ff`
+# `pip3 install nextoff`
+![Nextoff](docs/static/images/NEXTOFF.png)
+
 A package to perform emprical hyperparameter tuning!
 
 # How to use
