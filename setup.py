@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'nextoff',         
   packages = ['nextoff'],   # Chose the same as "name"
-  version = '0.2.4',      # Always update!
+  version = '0.2.5.0',      # Always update!
   license='MIT',        
   description = 'A package to experiment and tune keras hyperparameters',   # Give a short description about your library
   author = 'Asapanna Rakesh',                   
