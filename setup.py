@@ -1,14 +1,14 @@
 from distutils.core import setup
 setup(
   name = 'nextoff',         
-  packages = ['nextoff'],   # Chose the same as "name"
-  version = '0.2.5.2',      # Always update!
+  packages = ['nextoff', 'nextoff.data', 'nextoff.models'],   # Chose the same as "name"
+  version = '0.1.1',      # Always update!
   license='MIT',        
   description = 'A package to experiment and tune keras hyperparameters',   # Give a short description about your library
   author = 'Asapanna Rakesh',                   
   author_email = 'rakeshark22@gmail.com',      
   url = 'https://github.com/rakesh4real/nextoff',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.2.5.2.tar.gz',  # link pasted from release
+  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.1.1.tar.gz',  # link pasted from release
   keywords = ['Keras', 'hyperparameters', 'hyperparameters tuning'],   
   install_requires=[        
           'keras',
