@@ -4,8 +4,10 @@
 from nextoff.testfile import TestClass
 # test folder
 from nextoff import test
-# do we need to specify interal classes?
-#from nextoff.test.testfile import printHi
+# do we need to specify interal classes explicitly? YES
+# like here
+from nextoff.test.testfile import printHi
+# can we do it in internal __init__? YES (check print2)
 # -------------------------------------------------
 
 # ===========================================================================================
