@@ -1,8 +1,19 @@
 # only these are accessible to user
-# =================================
-# specific acessible
+# ===========================================================================================
+# test file
 from nextoff.testfile import TestClass
-# from nextoff.data.inmemory import InMemoryImgHandler
-# won't make all accessible?
+# test folder
+from nextoff.test.testfile import printHi
+# -------------------------------------------------
+
+# ===========================================================================================
+# data
+# ===========================================================================================
 from nextoff import data 
-import nextoff
+from nextoff.data.inmemory import InMemoryImgHandler
+
+# ===========================================================================================
+# models
+# ===========================================================================================
+from nextoff import models
+# do we need to specify interal classes?
