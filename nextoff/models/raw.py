@@ -303,7 +303,6 @@ class TestModel:
     # for fcs_Seq
     def __get_dense(self, out_nodes, act, kernel_regularizer):
         """out_nodes is int and act is string """
-        print(kernel_regularizer)
         return Dense(out_nodes, activation=act, kernel_regularizer=kernel_regularizer)
     
     def __get_dropout(self, p):
