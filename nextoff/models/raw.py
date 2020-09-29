@@ -5,6 +5,7 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten, BatchNormalization, Input, Dense
 from keras.layers import Conv2D, MaxPooling2D
 from keras.models import Model
+from keras.callbacks import ModelCheckpoint
 
 # =======================================================================================
 # BEG: build custom model based on args
@@ -50,17 +51,25 @@ class TestModel:
     # ----------------------------------------------------------
     # Training and evaluation
     # ----------------------------------------------------------
-    def fit(self, train_data, val_data, v, args):
+    def fit(self, train_data, val_data, v, savename, args):
         """train_data, val_data are tuples of X and y"""
         if v==0:
             print("Wait for the big picture ☕️\n\nTrainng started ...")
         num_samples = train_data[0].shape[0] #X
         num_batches = num_samples / args.batch_size
-        
+
         callbacks_list = []
         if 'CustomCallback' in args.__dict__:
             callbacks_list.append(args.CustomCallback(num_batches))
         
+        # checkpointer callback
+        os.makedirs(f'BestSavedModels', exist_ok=True)
+        check = ModelCheckpoint(
+            filepath=f"./SavedModels/{savename}.h5",
+            verbose=v, save_best_only=True
+        )
+        callbacks_list.append(check)
+
         self.history = self.model.fit(
             train_data[0], #X
             train_data[1], #y
@@ -70,7 +79,6 @@ class TestModel:
             shuffle         = args.shuffle,
             verbose         = v,
             callbacks       = callbacks_list
-            
         )
     
     # evaluation

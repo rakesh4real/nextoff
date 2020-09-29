@@ -1,10 +1,11 @@
 import os
 from nextoff.models.raw import TestModel
+import keras
 
 # =======================================================================================
 # BEG: abstraction for train, test and eval of model
 # =======================================================================================
-def train_test_model_with(data, args, save_name=None):
+def train_test_model_with(data, args, savename="bestmodel"):
     """
     + `args` must follow convention
     + data is of type `InMemoryImgHandler`
@@ -14,6 +15,10 @@ def train_test_model_with(data, args, save_name=None):
     baseline_model = TestModel(args)
     # compile
     baseline_model.compile(args)
+
+    # data augmentation
+    # -----------------
+    
     
     # Train eval, save and plot
     # -------------------------
@@ -22,14 +27,11 @@ def train_test_model_with(data, args, save_name=None):
     baseline_model.fit(
         (data.x_train, data.y_train),
         (data.x_val, data.y_val), 
-        v, # verbose 
+        v, # verbose
+        savename, 
         args
     )
     
-    # save
-    if save_name is not None:
-        os.makedirs(f'SavedModels', exist_ok=True)
-        baseline_model.save_to(f"./SavedModels/{save_name}.h5")
     # Evaluate the performance (unseen data)
     baseline_model.evaluate(data.x_test, data.y_test, v=1)
     # plot
