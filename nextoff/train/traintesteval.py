@@ -34,6 +34,8 @@ def train_test_model_with(data, args, save_name=None):
     baseline_model.evaluate(data.x_test, data.y_test, v=1)
     # plot
     baseline_model.plot()
+
+    return baseline_model # for cutom use
 # =======================================================================================
 # END: abstraction for train, test and eval of model
 # =======================================================================================
