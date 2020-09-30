@@ -10,6 +10,25 @@ from keras.preprocessing.image import ImageDataGenerator
 # BEG: build custom model based on args
 # =======================================================================================
 class TestModel:
+    """ Tensorflow model created using args
+
+    Attributes
+    __________
+    - args: all configs
+
+    Methods
+    _______
+    - build_model(args)
+    - compile(args)
+    - fit(train_data, val_data, v, savename, args)
+       - train_data: tuple of X and y
+       - val_data: tuple of X and y
+    - evaluate(x_test, y_test)
+       + evaluates on completely unseen data
+    - save_to(save_path)
+    - summary
+    - plot
+    """
     def __init__(self, args):
         # build model
         self.args = args
@@ -92,8 +111,8 @@ class TestModel:
         print(f"+ Test Loss\t:{test_loss}\n+ Test Acc\t:{test_acc}")
     
     # save
-    def save_to(self, save_dir):
-        self.model.save(save_dir)
+    def save_to(self, save_path):
+        self.model.save(save_path)
     
     # -----------------------------------------------------------
     # plot
