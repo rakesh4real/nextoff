@@ -80,6 +80,7 @@ class TestModel:
             steps_per_epoch = len(train_data[0]) / args.batch_size, 
             epochs          = args.epochs,
             shuffle         = args.shuffle,
+            verbose         = v,
             callbacks       = callbacks_list
         )
         """
