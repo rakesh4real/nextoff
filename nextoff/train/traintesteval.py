@@ -6,14 +6,18 @@ from nextoff.models.raw import TestModel
 # BEG: abstraction for train, test and eval of model
 # =======================================================================================
 def train_test_model_with(data, args, savename="bestmodel"):
-    """
-    + `args` must follow convention
-    + data is of type `InMemoryImgHandler`
+    """ Build temporary model and train/test/eval/plot w/ it 
+    
+    Parameters
+    __________
+    - data: data.inmemory.InMemoryImgHandler
+    - args:  must follow convention
+    - savename: str
+        + name of the saved model inside `BestSavedModels` dir
     """
     # initialize and build
     # --------------------
     baseline_model = TestModel(args)
-    # compile
     baseline_model.compile(args)
     
     # Train eval, save and plot
@@ -23,7 +27,7 @@ def train_test_model_with(data, args, savename="bestmodel"):
     baseline_model.fit(
         (data.x_train, data.y_train),
         (data.x_val, data.y_val), 
-        v, # verbose
+        v,
         savename, 
         args
     )
