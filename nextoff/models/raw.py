@@ -91,11 +91,11 @@ class TestModel:
         
         # data generator
         traingen = ImageDataGenerator(**args.train_data_gen)
-        testgen  = ImageDataGenerator(**args.test_data_gen)
+        valgen   = ImageDataGenerator(**args.val_data_gen)
 
         self.history = self.model.fit(
             traingen.flow(train_data[0], train_data[1], args.batch_size),
-            validation_data = testgen.flow(val_data[0], val_data[1], batch_size=args.batch_size),
+            validation_data = valgen.flow(val_data[0], val_data[1], batch_size=args.batch_size),
             steps_per_epoch = len(train_data[0]) / args.batch_size, 
             epochs          = args.epochs,
             shuffle         = args.shuffle,
@@ -104,10 +104,14 @@ class TestModel:
         )
     
     # evaluation
-    def evaluate(self, x_test, y_test, v=1):
+    def evaluate(self, x_test, y_test):
         print("Evaluating on test data...\n")
+        testgen  = ImageDataGenerator(**self.args.test_data_gen)
+
         test_loss, test_acc = \
-            self.model.evaluate(x_test, y_test, verbose=v)
+            self.model.evaluate(
+                testgen.flow(x_test, y_test, batch_size=self.args.batch_size)
+            )
         print(f"+ Test Loss\t:{test_loss}\n+ Test Acc\t:{test_acc}")
     
     # save
