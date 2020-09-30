@@ -83,18 +83,6 @@ class TestModel:
             verbose         = v,
             callbacks       = callbacks_list
         )
-        """
-        self.history = self.model.fit(
-            train_data[0], #X
-            train_data[1], #y
-            validation_data = val_data,
-            batch_size      = args.batch_size,
-            epochs          = args.epochs,
-            shuffle         = args.shuffle,
-            verbose         = v,
-            callbacks       = callbacks_list
-        )
-        """
     
     # evaluation
     def evaluate(self, x_test, y_test, v=1):
