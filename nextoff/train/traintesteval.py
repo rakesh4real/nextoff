@@ -33,7 +33,7 @@ def train_test_model_with(data, args, savename="bestmodel"):
     )
     
     # Evaluate the performance (unseen data)
-    baseline_model.evaluate(data.x_test, data.y_test, v=1)
+    baseline_model.evaluate(data.x_test, data.y_test)
     # plot
     baseline_model.plot()
 # =======================================================================================
