@@ -1,6 +1,6 @@
 import os
-from nextoff.models.raw import TestModel
 import keras
+from nextoff.models.raw import TestModel
 
 # =======================================================================================
 # BEG: abstraction for train, test and eval of model
@@ -15,10 +15,6 @@ def train_test_model_with(data, args, savename="bestmodel"):
     baseline_model = TestModel(args)
     # compile
     baseline_model.compile(args)
-
-    # data augmentation
-    # -----------------
-    
     
     # Train eval, save and plot
     # -------------------------
@@ -36,8 +32,6 @@ def train_test_model_with(data, args, savename="bestmodel"):
     baseline_model.evaluate(data.x_test, data.y_test, v=1)
     # plot
     baseline_model.plot()
-
-    return baseline_model # for cutom use
 # =======================================================================================
 # END: abstraction for train, test and eval of model
 # =======================================================================================

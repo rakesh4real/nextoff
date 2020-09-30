@@ -18,9 +18,8 @@ class InMemoryImgHandler:
         # 1. one hot encode targets if not already
         if y_info[1] is False:
             y = self.one_hot_encode(y, y_info[0])
-        # 2. Normalize X
-        X = InMemoryImgHandler.normalize_img_data(X)
-        # 3. gen train, val and test dataset and store
+                
+        # 2. gen train, val and test dataset and store
         (self.x_train, self.y_train), (self.x_val, self.y_val), (self.x_test, self.y_test) = \
             InMemoryImgHandler.train_val_test_split(X, y, ratio)
 
@@ -54,13 +53,6 @@ class InMemoryImgHandler:
             ( X[val_l:val_r]    , y[val_l:val_r] ), 
             ( X[test_l:test_r]  , y[test_l:test_r] ), 
         )
-    
-    @staticmethod
-    def normalize_img_data(ndarray, div_val=255):
-        """ ndarray is 4-D (n_samples, w, h, c) x_train """
-        ndarray = ndarray.astype('float32')
-        ndarray /= div_val
-        return ndarray
     
     @staticmethod
     def one_hot_encode(y, num_classes):

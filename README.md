@@ -14,7 +14,6 @@
 A package to perform emprical hyperparameter tuning!
 
 - [ ] Resize all (edge case: upscale)
-- [ ] Preprocess: standardisation, norm by sum
 
 # How to use
 Everything revolves around args

@@ -1,11 +1,10 @@
 import matplotlib.pyplot as plt # plotting
 import os # for file/folder creations
 import keras
-from keras.models import Sequential
-from keras.layers import Dense, Dropout, Activation, Flatten, BatchNormalization, Input, Dense
-from keras.layers import Conv2D, MaxPooling2D
-from keras.models import Model
+from keras.models import Model, Sequential
+from keras.layers import Dense, Conv2D, MaxPooling2D, Dropout, Activation, Flatten, BatchNormalization, Input, Dense
 from keras.callbacks import ModelCheckpoint
+from keras.preprocessing.image import ImageDataGenerator
 
 # =======================================================================================
 # BEG: build custom model based on args
@@ -59,17 +58,31 @@ class TestModel:
         num_batches = num_samples / args.batch_size
 
         callbacks_list = []
+        # custom callbacks (single only)
         if 'CustomCallback' in args.__dict__:
             callbacks_list.append(args.CustomCallback(num_batches))
         
         # checkpointer callback
         os.makedirs(f'BestSavedModels', exist_ok=True)
         check = ModelCheckpoint(
-            filepath=f"./SavedModels/{savename}.h5",
+            filepath=f"./BestSavedModels/{savename}.h5",
             verbose=v, save_best_only=True
         )
         callbacks_list.append(check)
+        
+        # data generator
+        traingen = ImageDataGenerator(**args.train_data_gen)
+        testgen  = ImageDataGenerator(**args.test_data_gen)
 
+        self.history = self.model.fit(
+            traingen.flow(train_data[0], train_data[1], args.batch_size),
+            validation_data = testgen.flow(val_data[0], val_data[1], batch_size=args.batch_size),
+            steps_per_epoch = len(train_data[0]) / args.batch_size, 
+            epochs          = args.epochs,
+            shuffle         = args.shuffle,
+            callbacks       = callbacks_list
+        )
+        """
         self.history = self.model.fit(
             train_data[0], #X
             train_data[1], #y
@@ -80,6 +93,7 @@ class TestModel:
             verbose         = v,
             callbacks       = callbacks_list
         )
+        """
     
     # evaluation
     def evaluate(self, x_test, y_test, v=1):
