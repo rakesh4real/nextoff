@@ -47,9 +47,9 @@ class TestModel:
     def compile(self, args):
 
         # todo: add other optimizers
-        if   'RMSprop' in args.keys()   : opt = keras.optimizers.RMSprop(**args.RMSprop)
-        elif 'SGD'     in args.keys()   : opt = keras.optimizers.SGD(**args.SGD)
-        elif 'Adam'    in args.keys()   : opt = keras.optimizers.Adam(**args.Adam)
+        if   'RMSprop' in args.__dict__ : opt = keras.optimizers.RMSprop(**args.RMSprop)
+        elif 'SGD'     in args.__dict__ : opt = keras.optimizers.SGD(**args.SGD)
+        elif 'Adam'    in args.__dict__ : opt = keras.optimizers.Adam(**args.Adam)
         else: 
             raise Exception('Define optimizers name exactly as in keras.optimizers')
 
