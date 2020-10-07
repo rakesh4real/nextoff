@@ -6,15 +6,15 @@ setup(
     'nextoff.test', 
     'nextoff.data', 
     'nextoff.models',
-    'nextoff.train',
+    'nextoff.train', 
     ],  # ! Important
-  version = '0.1.1.5', # ! Always update
+  version = '0.1.1.6', # ! Always update
   license='MIT',        
   description = 'A package to experiment and tune keras hyperparameters', 
   author = 'Asapanna Rakesh',                   
   author_email = 'rakeshark22@gmail.com',      
   url = 'https://github.com/rakesh4real/nextoff', 
-  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.1.1.5.tar.gz',
+  download_url = 'https://github.com/rakesh4real/nextoff/archive/v0.1.1.6.tar.gz',
   keywords = ['Keras', 'hyperparameters', 'hyperparameters tuning'],   
   install_requires=[        
           'keras',

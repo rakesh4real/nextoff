@@ -24,18 +24,20 @@ def train_test_model_with(data, args, savename="bestmodel"):
     # -------------------------
     if 'v' in args.__dict__: v = args.v
     else: v = 0
-    baseline_model.fit(
-        (data.x_train, data.y_train),
-        (data.x_val, data.y_val), 
-        v,
-        savename, 
-        args
+    hist = baseline_model.fit( 
+                (data.x_train, data.y_train),
+                (data.x_val, data.y_val), 
+                v,
+                savename, 
+                args
     )
     
     # Evaluate the performance (unseen data)
     baseline_model.evaluate(data.x_test, data.y_test)
     # plot
     baseline_model.plot()
+
+    return hist
 # =======================================================================================
 # END: abstraction for train, test and eval of model
 # =======================================================================================

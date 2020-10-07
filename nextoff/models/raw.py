@@ -45,21 +45,14 @@ class TestModel:
         return Model(inputs=input_dims, outputs=x)
     
     def compile(self, args):
-        # configure optimizer
-        # rmsprop
-        if args.optimizer == 'RMSprop':
-            opt = keras.optimizers.RMSprop(
-                lr     = args.lr, 
-                decay  = args.rms_decay
-            )
-        elif args.optimizer == 'SGD':
-            opt = keras.optimizers.SGD(
-                learning_rate  = args.lr, 
-                momentum       = args.sgd_momentum, 
-                nesterov       = args.sgd_nesterov, 
-            )
 
-        # Create our model by compiling
+        # todo: add other optimizers
+        if   'RMSprop' in args.keys()   : opt = keras.optimizers.RMSprop(**args.RMSprop)
+        elif 'SGD'     in args.keys()   : opt = keras.optimizers.SGD(**args.SGD)
+        elif 'Adam'    in args.keys()   : opt = keras.optimizers.Adam(**args.Adam)
+        else: 
+            raise Exception('Define optimizers name exactly as in keras.optimizers')
+
         self.model.compile(
             loss       = args.loss,
             optimizer  = opt,
@@ -102,6 +95,8 @@ class TestModel:
             verbose         = v,
             callbacks       = callbacks_list
         )
+
+        return self.history
     
     # evaluation
     def evaluate(self, x_test, y_test):
