@@ -82,10 +82,11 @@ class TestModel:
         )
         callbacks_list.append(check)
         
-        # instantiate and fit data generator
+        # instantiate and fit data generatorS
         traingen = ImageDataGenerator(**args.train_data_gen)
         valgen = ImageDataGenerator(**args.val_data_gen)
         traingen.fit(train_data[0])
+        valgen.fit(val_data[0])
 
         self.history = self.model.fit(
             traingen.flow(train_data[0], train_data[1], args.batch_size),
@@ -102,7 +103,8 @@ class TestModel:
     # evaluation
     def evaluate(self, x_test, y_test):
         print("Evaluating on test data...\n")
-        testgen  = ImageDataGenerator(**self.args.test_data_gen)
+        testgen = ImageDataGenerator(**self.args.test_data_gen)
+        testgen.fit(x_test)
 
         test_loss, test_acc = \
             self.model.evaluate(
