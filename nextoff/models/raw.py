@@ -82,9 +82,10 @@ class TestModel:
         )
         callbacks_list.append(check)
         
-        # data generator
+        # instantiate and fit data generator
         traingen = ImageDataGenerator(**args.train_data_gen)
-        valgen   = ImageDataGenerator(**args.val_data_gen)
+        valgen = ImageDataGenerator(**args.val_data_gen)
+        traingen.fit(train_data[0])
 
         self.history = self.model.fit(
             traingen.flow(train_data[0], train_data[1], args.batch_size),
